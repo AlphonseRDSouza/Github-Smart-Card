@@ -3,24 +3,28 @@ import SearchProfile from "./components/SearchProfile";
 import Profile from "./components/Profile";
 
 const API = "https://api.github.com/users";
-
+const userName = "alphonserdsouza"; //Intial value can be changed
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "alphonserdsouza",
+      username: userName,
       name: "",
       avatar: "",
       location: "",
       repos: "",
+      bio: "",
+      gists: "",
       followers: "",
       following: "",
       homeUrl: "",
       notFound: ""
     };
   }
+
   fetchProfile(username) {
     let url = `${API}/${username}`;
+    // let urlString = API + username;
     fetch(url)
       .then(res => res.json())
       .then(data => {
@@ -30,6 +34,8 @@ class App extends React.Component {
           avatar: data.avatar_url,
           location: data.location,
           repos: data.public_repos,
+          bio: data.bio,
+          gists: data.public_gists,
           followers: data.followers,
           following: data.following,
           homeUrl: data.html_url,

@@ -99,6 +99,10 @@ a {
       font-size: 1.1885rem;
       color: darken($gray, 16%);
     }
+    h4 {
+      font-size: 0.9rem;
+      color: darken($gray, 16%);
+    }
   }
   &__state {
     background: $primary;
